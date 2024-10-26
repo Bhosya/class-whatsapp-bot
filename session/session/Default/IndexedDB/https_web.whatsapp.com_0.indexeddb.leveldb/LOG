@@ -1,21 +1,4 @@
-2024/10/27-00:03:18.179 2df0 Reusing MANIFEST D:\class-whatsapp-bot\session\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/10/27-00:03:18.180 2df0 Recovering log #181
-2024/10/27-00:03:18.182 2df0 Reusing old log D:\class-whatsapp-bot\session\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000181.log 
-2024/10/27-00:03:20.447 3794 Level-0 table #190: started
-2024/10/27-00:03:20.456 3794 Level-0 table #190: 23367 bytes OK
-2024/10/27-00:03:20.459 3794 Delete type=0 #181
-2024/10/27-00:03:20.460 3794 Manual compaction at level-0 from '\x00+\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00,\x00\x00\x00' @ 0 : 0; will stop at (end)
-2024/10/27-00:03:23.942 2ecc Compacting 1@1 + 5@2 files
-2024/10/27-00:03:24.070 2ecc Generated table #191@1: 27502 keys, 2191937 bytes
-2024/10/27-00:03:24.149 2ecc Generated table #192@1: 5434 keys, 2170815 bytes
-2024/10/27-00:03:24.278 2ecc Generated table #193@1: 24021 keys, 2226482 bytes
-2024/10/27-00:03:24.507 2ecc Generated table #194@1: 81002 keys, 2225419 bytes
-2024/10/27-00:03:24.691 2ecc Generated table #195@1: 71433 keys, 1465604 bytes
-2024/10/27-00:03:24.691 2ecc Compacted 1@1 + 5@2 files => 10280257 bytes
-2024/10/27-00:03:24.692 2ecc compacted to: files[ 0 0 5 0 0 0 0 ]
-2024/10/27-00:03:24.692 2ecc Delete type=2 #183
-2024/10/27-00:03:24.692 2ecc Delete type=2 #184
-2024/10/27-00:03:24.692 2ecc Delete type=2 #185
-2024/10/27-00:03:24.692 2ecc Delete type=2 #186
-2024/10/27-00:03:24.692 2ecc Delete type=2 #187
-2024/10/27-00:03:24.692 2ecc Delete type=2 #190
+2024/10/27-00:12:09.815 2e20 Reusing MANIFEST D:\class-whatsapp-bot\session\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/10/27-00:12:09.815 2e20 Recovering log #189
+2024/10/27-00:12:09.879 2e20 Reusing old log D:\class-whatsapp-bot\session\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000189.log 
+2024/10/27-00:12:12.256 337c Manual compaction at level-0 from '\x00,\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00-\x00\x00\x00' @ 0 : 0; will stop at (end)
