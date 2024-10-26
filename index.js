@@ -49,7 +49,7 @@ client.on("message", async (msg) => {
       addAssignment(title, deadline, detail);
       client.sendMessage(msg.from, `Tugas "${title}" dengan deadline "${deadline}" dan detail berhasil ditambahkan.`);
     } else {
-      client.sendMessage(msg.from, "Format salah. Gunakan: !tugasbaru <judul tugas> <deadline (dd-mm-yyyy)> <detail>");
+      client.sendMessage(msg.from, "Format salah. Gunakan: .tugasbaru <judul tugas> <deadline (dd-mm-yyyy)> <detail>");
     }
   } else if (msg.body.startsWith(".detailtugas ")) {
     const [_, title] = msg.body.split(" ", 2);
@@ -68,7 +68,7 @@ client.on("message", async (msg) => {
       deleteAssignment(title);
       client.sendMessage(msg.from, `Tugas "${title}" telah dihapus.`);
     } else {
-      client.sendMessage(msg.from, "Format salah. Gunakan: !hapustugas <judul tugas>");
+      client.sendMessage(msg.from, "Format salah. Gunakan: .hapustugas <judul tugas>");
     }
   } else if (msg.body === ".infotugas") {
     const assignments = infoAssignments();
