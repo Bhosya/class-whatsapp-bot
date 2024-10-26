@@ -2,6 +2,8 @@ const { Client, LocalAuth } = require("whatsapp-web.js");
 const moment = require("moment");
 const { addAssignment, infoAssignment, deleteAssignment, addExams, infoExams, deleteExams, deleteExpiredAssignment, deleteExpiredExams } = require("./functions");
 
+const qrcode = require("qrcode-terminal");
+
 const client = new Client({
   authStrategy: new LocalAuth({
     dataPath: "session",
@@ -13,6 +15,10 @@ const client = new Client({
 
 client.on("ready", () => {
   console.log("Client is ready!");
+});
+
+client.on("qr", (qr) => {
+  qrcode.generate(qr, { small: true });
 });
 
 client.initialize();
@@ -41,10 +47,9 @@ client.on("message", async (msg) => {
     }
 
     await chat.sendMessage(text, { mentions });
-  } 
-  
-  
-  
+  }
+
+  // CRUD for assignment
   else if (msg.body.startsWith(".tugasbaru ")) {
     const [_, title, deadline, ...detailArr] = msg.body.split(" ");
     const detail = detailArr.join(" ");
@@ -87,8 +92,7 @@ client.on("message", async (msg) => {
     }
   }
 
-
-
+  // CRUD for exams
   else if (msg.body.startsWith(".ujianbaru ")) {
     const [_, title, deadline, ...detailArr] = msg.body.split(" ");
     const detail = detailArr.join(" ");
@@ -127,7 +131,7 @@ client.on("message", async (msg) => {
       exams.forEach((item, index) => {
         examsList += `${index + 1}. ${item.title} - Deadline: ${item.deadline}\n`;
       });
-      client.sendMessage(msg.from, assignmentsList);
+      client.sendMessage(msg.from, examsList);
     }
   }
 });

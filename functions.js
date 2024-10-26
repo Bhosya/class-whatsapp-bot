@@ -15,7 +15,7 @@ function saveData(filePath, data) {
 function addAssignment(title, deadline, detail) {
   const data = readData(assignmentFilePath);
   data.push({ title, deadline, detail });
-  saveData(examsFilePath, data);
+  saveData(assignmentFilePath, data);
 }
 function infoAssignment() {
   const data = readData(assignmentFilePath);
@@ -24,7 +24,7 @@ function infoAssignment() {
 function deleteAssignment(title) {
   const data = readData(assignmentFilePath);
   const updatedData = data.filter((item) => item.title !== title);
-  saveData(examsFilePath, updatedData);
+  saveData(assignmentFilePath, updatedData);
   console.log(`Assignment "${title}" deleted successfully.`);
 }
 
