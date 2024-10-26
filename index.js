@@ -1,6 +1,6 @@
 const { Client, LocalAuth } = require("whatsapp-web.js");
 const moment = require("moment");
-const { addAssignment, infoAssignments, deleteAssignment, deleteExpiredAssignments } = require("./functions");
+const { addAssignment, infoAssignment, deleteAssignment, deleteExpiredAssignments } = require("./functions");
 
 const client = new Client({
   authStrategy: new LocalAuth({
@@ -41,7 +41,11 @@ client.on("message", async (msg) => {
     }
 
     await chat.sendMessage(text, { mentions });
-  } else if (msg.body.startsWith(".tugasbaru ")) {
+  } 
+  
+  
+  
+  else if (msg.body.startsWith(".tugasbaru ")) {
     const [_, title, deadline, ...detailArr] = msg.body.split(" ");
     const detail = detailArr.join(" ");
 
@@ -53,7 +57,7 @@ client.on("message", async (msg) => {
     }
   } else if (msg.body.startsWith(".detailtugas ")) {
     const [_, title] = msg.body.split(" ", 2);
-    const data = infoAssignments();
+    const data = infoAssignment();
 
     const assignment = data.find((item) => item.title === title);
     if (assignment) {
@@ -71,11 +75,55 @@ client.on("message", async (msg) => {
       client.sendMessage(msg.from, "Format salah. Gunakan: .hapustugas <judul tugas>");
     }
   } else if (msg.body === ".infotugas") {
-    const assignments = infoAssignments();
+    const assignments = infoAssignment();
     if (assignments.length === 0) {
       client.sendMessage(msg.from, "Tidak ada tugas.");
     } else {
       let assignmentsList = "Daftar Tugas:\n";
+      assignments.forEach((item, index) => {
+        assignmentsList += `${index + 1}. ${item.title} - Deadline: ${item.deadline}\n`;
+      });
+      client.sendMessage(msg.from, assignmentsList);
+    }
+  }
+
+
+
+  else if (msg.body.startsWith(".ujianbaru ")) {
+    const [_, title, deadline, ...detailArr] = msg.body.split(" ");
+    const detail = detailArr.join(" ");
+
+    if (moment(deadline, "DD-MM-YYYY", true).isValid() && title && detail) {
+      addAssignment(title, deadline, detail);
+      client.sendMessage(msg.from, `Ujian "${title}" dengan deadline "${deadline}" dan detail berhasil ditambahkan.`);
+    } else {
+      client.sendMessage(msg.from, "Format salah. Gunakan: .ujianbaru <judul ujian> <deadline (dd-mm-yyyy)> <detail>");
+    }
+  } else if (msg.body.startsWith(".detailujian ")) {
+    const [_, title] = msg.body.split(" ", 2);
+    const data = infoAssignment();
+
+    const assignment = data.find((item) => item.title === title);
+    if (assignment) {
+      client.sendMessage(msg.from, `Detail ujian "${title}":\n\n${assignment.detail}`);
+    } else {
+      client.sendMessage(msg.from, "Ujian tidak ditemukan atau gagal mengambil detail.");
+    }
+  } else if (msg.body.startsWith(".hapusujian ")) {
+    const [_, title] = msg.body.split(" ", 2);
+
+    if (title) {
+      deleteAssignment(title);
+      client.sendMessage(msg.from, `Ujian "${title}" telah dihapus.`);
+    } else {
+      client.sendMessage(msg.from, "Format salah. Gunakan: .hapusujian <judul ujian>");
+    }
+  } else if (msg.body === ".infoujian") {
+    const assignments = infoAssignment();
+    if (assignments.length === 0) {
+      client.sendMessage(msg.from, "Tidak ada ujian.");
+    } else {
+      let assignmentsList = "Daftar Ujian:\n";
       assignments.forEach((item, index) => {
         assignmentsList += `${index + 1}. ${item.title} - Deadline: ${item.deadline}\n`;
       });
