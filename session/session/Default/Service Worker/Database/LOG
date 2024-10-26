@@ -1,3 +1,2 @@
-2024/10/26-14:20:00.045 20bc Reusing MANIFEST D:\class-whatsapp-bot\session\session\Default\Service Worker\Database/MANIFEST-000001
-2024/10/26-14:20:00.045 20bc Recovering log #3
-2024/10/26-14:20:00.046 20bc Reusing old log D:\class-whatsapp-bot\session\session\Default\Service Worker\Database/000003.log 
+2024/10/26-22:34:03.829 1c28 Creating DB D:\class-whatsapp-bot\session\session\Default\Service Worker\Database since it was missing.
+2024/10/26-22:34:03.842 1c28 Reusing MANIFEST D:\class-whatsapp-bot\session\session\Default\Service Worker\Database/MANIFEST-000001
