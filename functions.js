@@ -44,14 +44,23 @@ function deleteExams(title) {
   console.log(`Exams "${title}" deleted successfully.`);
 }
 
-function deleteExpiredAssignments() {
+function deleteExpiredAssignment() {
   const data = readData(assignmentFilePath);
   const currentDate = moment().format("DD-MM-YYYY");
 
   const updatedData = data.filter((item) => moment(item.deadline, "DD-MM-YYYY", true).isSameOrAfter(moment(currentDate, "DD-MM-YYYY", true)));
 
+  saveData(assignmentFilePath, updatedData);
+  console.log("Expired assignment deleted successfully.");
+}
+function deleteExpiredExams() {
+  const data = readData(examsFilePath);
+  const currentDate = moment().format("DD-MM-YYYY");
+
+  const updatedData = data.filter((item) => moment(item.deadline, "DD-MM-YYYY", true).isSameOrAfter(moment(currentDate, "DD-MM-YYYY", true)));
+
   saveData(examsFilePath, updatedData);
-  console.log("Expired assignments deleted successfully.");
+  console.log("Expired exams deleted successfully.");
 }
 
 module.exports = {
@@ -61,5 +70,6 @@ module.exports = {
   addExams,
   infoExams,
   deleteExams,
-  deleteExpiredAssignments,
+  deleteExpiredAssignment,
+  deleteExpiredExams,
 };
