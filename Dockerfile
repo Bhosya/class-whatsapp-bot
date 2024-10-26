@@ -1,9 +1,10 @@
 # Use an official Node.js runtime as a parent image
 FROM node:18
 
-# Install necessary dependencies for Puppeteer
+# Install necessary dependencies for Puppeteer and Chrome
 RUN apt-get update && apt-get install -y \
     libnss3 \
+    libcups2 \
     libatk1.0-0 \
     libatk-bridge2.0-0 \
     libdrm2 \
@@ -20,7 +21,8 @@ RUN apt-get update && apt-get install -y \
     libxtst6 \
     libxss1 \
     libxinerama1 \
-    xdg-utils
+    xdg-utils \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
 WORKDIR /app
