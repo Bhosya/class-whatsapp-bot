@@ -1,0 +1,23 @@
+2024/12/07-13:50:36.237 20ac Reusing MANIFEST C:\Users\Bhosya\Downloads\class-whatsapp-bot-master\session\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/12/07-13:50:36.237 20ac Recovering log #183
+2024/12/07-13:50:36.311 20ac Reusing old log C:\Users\Bhosya\Downloads\class-whatsapp-bot-master\session\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000183.log 
+2024/12/07-13:50:38.558 1be4 Level-0 table #193: started
+2024/12/07-13:50:38.577 1be4 Level-0 table #193: 221292 bytes OK
+2024/12/07-13:50:38.589 1be4 Delete type=0 #183
+2024/12/07-13:50:38.590 3888 Manual compaction at level-0 from '\x00"\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00#\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/12/07-13:50:41.194 3888 Compacting 1@1 + 6@2 files
+2024/12/07-13:50:41.294 3888 Generated table #194@1: 28897 keys, 2197498 bytes
+2024/12/07-13:50:41.349 3888 Generated table #195@1: 3194 keys, 2167284 bytes
+2024/12/07-13:50:41.405 3888 Generated table #196@1: 3419 keys, 2166711 bytes
+2024/12/07-13:50:41.474 3888 Generated table #197@1: 16099 keys, 2198287 bytes
+2024/12/07-13:50:41.581 3888 Generated table #198@1: 24721 keys, 2274601 bytes
+2024/12/07-13:50:41.669 3888 Generated table #199@1: 48509 keys, 1348218 bytes
+2024/12/07-13:50:41.669 3888 Compacted 1@1 + 6@2 files => 12352599 bytes
+2024/12/07-13:50:41.671 3888 compacted to: files[ 0 0 6 0 0 0 0 ]
+2024/12/07-13:50:41.671 3888 Delete type=2 #185
+2024/12/07-13:50:41.671 3888 Delete type=2 #186
+2024/12/07-13:50:41.671 3888 Delete type=2 #187
+2024/12/07-13:50:41.671 3888 Delete type=2 #188
+2024/12/07-13:50:41.671 3888 Delete type=2 #189
+2024/12/07-13:50:41.671 3888 Delete type=2 #190
+2024/12/07-13:50:41.671 3888 Delete type=2 #193
