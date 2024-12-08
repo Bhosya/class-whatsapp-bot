@@ -130,9 +130,23 @@ schedule.scheduleJob("0 0 * * 0", deductWeeklyCash);
 schedule.scheduleJob("0 12 * * *", () => reminders("task"));
 
 client.on("message", async (msg) => {
-  if (!quotedMessage) {
-    throw new Error('No quoted message found');
-  }
+  try {
+        console.log('Received message:', msg.body);
+
+        // Check if there is a quoted message
+        if (msg.hasQuotedMsg) {
+            const quotedMessage = await msg.getQuotedMessage();
+            console.log('Quoted message:', quotedMessage.body);
+
+            // Respond to the quoted message
+            await client.sendMessage(msg.from, `You quoted: "${quotedMessage.body}"`);
+        } else {
+            console.log('No quoted message found');
+            await client.sendMessage(msg.from, 'Please quote a message to reply to.');
+        }
+    } catch (error) {
+        console.error('Error processing message:', error);
+    }
 
   if (msg.body.startsWith(".")) {
     const sender = msg.author || msg.from;
