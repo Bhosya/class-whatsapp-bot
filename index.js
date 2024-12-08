@@ -130,6 +130,10 @@ schedule.scheduleJob("0 0 * * 0", deductWeeklyCash);
 schedule.scheduleJob("0 12 * * *", () => reminders("task"));
 
 client.on("message", async (msg) => {
+  if (!quotedMessage) {
+    throw new Error('No quoted message found');
+  }
+
   if (msg.body.startsWith(".")) {
     const sender = msg.author || msg.from;
     const contact = await msg.getContact();
